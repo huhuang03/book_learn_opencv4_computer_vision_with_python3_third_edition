@@ -18,7 +18,7 @@ class CaptureManager(object):
         self._videoEncoding = None
         self._videoWriter = None
         self._startTime = None
-        self._frameElapsed = None
+        self._frameElapsed = 0
         self._fpsElapsed = None
 
     @property
@@ -35,7 +35,7 @@ class CaptureManager(object):
     def frame(self):
         # copy for now
         if self._enteredFrame and self._frame is None:
-            _, self._frame = self._capture.retrive(self._frame, self.channel)
+            _, self._frame = self._capture.retrieve(self._frame, self.channel)
         return self._frame
 
     @property
@@ -82,7 +82,7 @@ class CaptureManager(object):
     def writeImage(self, filename):
         self._imageFilename = filename
 
-    def startWritingVideo(self, filename, encoding=cv2.VideoWriter('M', 'J', 'P', 'G')):
+    def startWritingVideo(self, filename, encoding=cv2.VideoWriter_fourcc('M', 'J', 'P', 'G')):
         self._videoFilename = filename
         self._videoEncoding = encoding
 
