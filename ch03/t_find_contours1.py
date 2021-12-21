@@ -3,7 +3,7 @@ from images import img_path
 import numpy as np
 
 if __name__ == '__main__':
-    img = cv2.imread(img_path('hammer.jpeg'), cv2.IMREAD_UNCHANGED)
+    img = cv2.imread(img_path('hammer.jpg'), cv2.IMREAD_UNCHANGED)
     cv2.imshow('img', img)
 
     ret, thresh = cv2.threshold(cv2.cvtColor(img, cv2.COLOR_BGR2GRAY), 127, 255, cv2.THRESH_BINARY)
