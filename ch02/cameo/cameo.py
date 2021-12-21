@@ -18,8 +18,8 @@ class Cameo:
             self._captureManager.enterFrame()
             frame = self._captureManager.frame
             if frame is not None:
-                # filters.strokeEdges(frame, frame)
-                # self._curveFilter.apply(frame, frame)
+                filters.strokeEdges(frame, frame)
+                self._curveFilter.apply(frame, frame)
                 pass
             self._captureManager.exitFrame()
             self._windowManager.processEvent()
